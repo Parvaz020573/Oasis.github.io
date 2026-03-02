@@ -1198,26 +1198,11 @@
 <footer>
   <p>© 2024 <span>OASIS Services & Trading LLC</span> · Muscat, Sultanate of Oman · All rights reserved</p>
 </footer>
- <!-- PROTECTION SCRIPT -->
-  <script>
-    // Disable right-click
-    document.addEventListener('contextmenu', (e) => {
-      e.preventDefault();
-      alert('Source code is protected. Contact developer for permissions.');
-    });
 
-    // Disable developer tools
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'F12' || 
-          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
-          (e.ctrlKey && e.key === 'U')) {
-        e.preventDefault();
-        alert('Developer tools are disabled.');
-      }
-    });
-  </script>
+ 
 <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>-->
  <script> 
+   
   // ═══════════════════════════════════════════════
   //  OASIS — 3D Cinematic Hero Engine
   // ═══════════════════════════════════════════════
@@ -1446,6 +1431,36 @@
       if (heroSection) heroSection.style.perspectiveOrigin = `50% ${40 + sy * 0.025}%`;
     }
   }, { passive: true });
+   // Disable right-click
+  document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    alert('This action is not allowed.');
+  });
+
+  // Disable F12 + dev tools shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+        (e.ctrlKey && e.key === 'U')) {
+      e.preventDefault();
+      alert('Developer tools are disabled.');
+    }
+  });
+
+  // Detect if dev tools are open
+  let devtoolsOpen = false;
+  const threshold = 160;
+  setInterval(() => {
+    if (window.outerHeight - window.innerHeight > threshold ||
+        window.outerWidth - window.innerWidth > threshold) {
+      if (!devtoolsOpen) {
+        devtoolsOpen = true;
+        alert('Developer tools detected. Please close them.');
+      }
+    } else {
+      devtoolsOpen = false;
+    }
+  }, 500);
 </script>
 </body>
 </html>
