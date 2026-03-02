@@ -1198,7 +1198,24 @@
 <footer>
   <p>© 2024 <span>OASIS Services & Trading LLC</span> · Muscat, Sultanate of Oman · All rights reserved</p>
 </footer>
+ <!-- PROTECTION SCRIPT -->
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      alert('Source code is protected. Contact developer for permissions.');
+    });
 
+    // Disable developer tools
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+          (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+        alert('Developer tools are disabled.');
+      }
+    });
+  </script>
 <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>-->
  <script> 
   // ═══════════════════════════════════════════════
